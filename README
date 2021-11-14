@@ -1,0 +1,102 @@
+Statistics Actions on Text File
+
+-----------------------------------------------
+
+How to Use
+
+Download git repository to your local machine.
+In the main directory:
+install nltk-> pip install nltk.
+Run the command-> python run.py and follow instructions.
+
+For information about an action run-> help(Statistics.{Method_Name})
+------------------------------------------------
+
+Description 
+
+In this program, I've performed seven statistics methods on a given text file as follows:
+1. Count the number of lines in the file.
+2. Count the number of words in the file.
+3. Count the number of unique words in the file.
+4. Calculate the maximal and the average sentence lengths.
+5. Find the most popular word in the text which doesn't have a syntactic meaning in English.
+6. Find the longest continuous subsequence without the char 'K' / 'k'.
+7. Find colors that appear in the text and their appearances amount.
+
+I used python for implementing the methods above because python is known for its wide collection of functions and libraries to use when working with text.
+
+For some of the above methods, I needed to extract the words themselves from the text file.
+I had to think of all the edge cases possible in-order to do that.
+For example, in the third method that counts the number of unique words in the text, 
+a word is a subsequence of the text, separated from other words by a space. Is it enough to just split the text by a space and get the words? There are words at the end of a sentence followed by a '.' or ':' etc. 
+What about a word with possessive s', Do we consider both the word itself and with 's as one word? 
+Words separated by a '-', like 'real-time', does it make sense to consider 'real' and 'time' as two separated words?
+It will lose its real meaning.
+For calculating the maximal and the average sentence lengths, 
+I first needed to define what a sentence is, If I would choose to only separate a sentence by a '.', 
+What about the word 'Mr.s' or 'Dr.', the separation would have been wrong.
+
+In order to solve all of the above, I've made a deep research on all the cases that may come up and used 'regular expression' to implement the separation in the best way.
+
+------------------------------------------------
+
+Future assignment
+
+A. Read file data into a buffer for being able to process larger text files.
+B. Get to know additional natural languege libraries to work with for more accurate results.
+C. Focus on storing the data in a way that would save up space resources.
+D. Do better in calculations than linear.
+E. Add regular expressions for more accurate results.
+F. Build tests.
+G. Use an external library for not only common colors in assignment 
+
+------------------------------------------------
+
+Input and Output examples
+
+1. Count the number of lines in the file
+========================================
+input: local text file dickens.txt
+output : 1227
+
+2. Count the number of words in the file.
+=========================================
+input: local text file dickens.txt
+output : 13177
+
+3. Count the number of unique words in the file.
+================================================
+input: local text file dickens.txt
+output : 3037
+
+4. Calculate the maximal and the average sentence lengths.
+==========================================================
+input: local text file dickens.txt
+output:
+    Maximal Sentence Length: 1321
+    Average Sentence Length: 107
+
+5. Find the most popular word which doesn't have a syntactic meaning in English.
+================================================================================
+input: local text file dickens.txt
+output : 'one'
+
+6. Find the longest continuous subsequence without the char 'K' / 'k'.
+======================================================================
+input: local text file dickens.txt
+output : 156
+
+7. Find colors that appear in the text and their appearances amount.
+====================================================================
+input: local text file dickens.txt
+output : 
+    'White', 4
+    'Black', 8
+    'Grey', 1
+    'Yellow', 2
+    'Red', 8
+    'Blue', 1
+    'Green', 2
+    'Brown', 6
+
+
